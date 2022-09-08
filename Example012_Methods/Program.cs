@@ -87,32 +87,64 @@ string text = "— Я думаю, — сказал князь, улыбаясь,
 //            012
 // s[3]// r
 
-string Replace(string text, char oldValue, char newValue)
+// string Replace(string text, char oldValue, char newValue)
+// {
+//     string result = string.Empty;
+//     int length = text.Length;
+//     for (int i = 0; i < length; i++)
+//     {
+//         if(text[i]==oldValue) result = result + $"{newValue}";
+//         else result = result + $"{text[i]}";
+
+//     }
+
+
+//     return result;
+// }
+
+// string newText = Replace(text,' ','|');
+
+// Console.WriteLine(newText);
+// Console.WriteLine();
+
+// newText = Replace(newText,'к','К');
+
+// Console.WriteLine(newText);
+// Console.WriteLine();
+
+// newText = Replace(newText,'C','c');
+
+// Console.WriteLine(newText);
+// Console.WriteLine();
+
+int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
+void PrintArray(int[] array)
 {
-    string result = string.Empty;
-    int length = text.Length;
-    for (int i = 0; i < length; i++)
+    int count = array.Length;
+    for (int i = 0; i < count; i++)
     {
-        if(text[i]==oldValue) result = result + $"{newValue}";
-        else result = result + $"{text[i]}";
-
+        Console.Write($"{array[i]} ");
     }
-
-
-    return result;
+    Console.WriteLine();
 }
 
-string newText = Replace(text,' ','|');
+void SelectionSort(int[] array)
+{
 
-Console.WriteLine(newText);
-Console.WriteLine();
+for (int i = 0; i < array.Length-1; i++)
+{
+    int minPosition = i;
+    for (int j = i+1; j < array.Length; j++)
+    {
+        if (array[j]< array[minPosition]) minPosition = j; 
+    } 
+    int temporary = array[i];
+    array[i]= array[minPosition];
+    array[minPosition]= temporary;
+}
+}
 
-newText = Replace(newText,'к','К');
 
-Console.WriteLine(newText);
-Console.WriteLine();
-
-newText = Replace(newText,'C','c');
-
-Console.WriteLine(newText);
-Console.WriteLine();
+PrintArray(arr);
+SelectionSort(arr);
+PrintArray(arr);
